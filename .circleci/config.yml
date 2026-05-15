@@ -4,6 +4,7 @@ jobs:
   build-and-test:
     machine:
       image: ubuntu-2404:current
+      docker_layer_caching: true
     steps:
       - checkout
       - run: 
@@ -18,6 +19,9 @@ jobs:
       - run:
           name: Budowanie obrazu Docker
           command: make docker_build
+      - run:
+          name: Wysylanie obrazu na Docker Hub
+          command: make docker_push
 
 workflows:
   basic:
