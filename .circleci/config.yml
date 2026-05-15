@@ -15,6 +15,9 @@ jobs:
       - run: 
           name: Uruchamianie testow
           command: make test
+      - run:
+          name: Budowanie obrazu Docker
+          command: make docker_build
 
 workflows:
   basic:
