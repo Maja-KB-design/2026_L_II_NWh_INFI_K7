@@ -8,15 +8,14 @@ msg = "Hello World!"
 
 
 @app.route('/')
-
 def index():
     output = request.args.get('output')
-    if not output: # noqa
+    if not output:  # noqa
         output = PLAIN
     return get_formatted(msg, moje_imie,
                          output.lower())
 
 
 @app.route('/outputs')
-
-def supported_output():    return ", ".join(SUPPORTED)
+def supported_output():
+    return ", ".join(SUPPORTED)
