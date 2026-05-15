@@ -1,0 +1,22 @@
+version: 2.1
+
+jobs:
+  build-and-test:
+    machine:
+      image: ubuntu-2404:current
+    steps:
+      - checkout
+      - run: 
+          name: Instalacja zaleznosci
+          command: make deps
+      - run: 
+          name: Sprawdzanie czystosci kodu (Lint)
+          command: make lint
+      - run: 
+          name: Uruchamianie testow
+          command: make test
+
+workflows:
+  basic:
+    jobs:
+      - build-and-test
